@@ -1,0 +1,19 @@
+---
+
+- name: 'Set package state.'
+  include_tasks: 'package_state.yml'
+  loop: '{{ os_pkgs.keys()|union(group_pkgs.keys())|sort|unique }}'
+  loop_control:
+    loop_var: 'state'
+  vars:
+    name: '{{ os_pkgs[state]|default([])
+              |union(group_pkgs[state]|default([]))
+              |flatten|unique
+           }}'
+
+- name: 'Purge problematic packages.'
+  apt:
+    name: '{{ os_apt_purge }}'
+    state: 'absent'
+    purge: true
+  when: 'os_apt_purge is defined'

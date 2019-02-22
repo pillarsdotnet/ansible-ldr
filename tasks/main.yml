@@ -1,0 +1,25 @@
+---
+
+- name: 'Include os vars.'
+  include_vars:
+    dir: '{{ playbook_dir~"/os_vars" }}'
+    files_matching: '{{ common_os_patterns
+                        |map("regex_replace","$",".yml")
+                        |join("|")
+                     }}'
+
+- name: 'Install packages.'
+  include_tasks: 'package.yml'
+
+- name: 'Install pips.'
+  include_tasks: 'pip.yml'
+
+- name: 'Apply roles.'
+  include_role:
+    name: '{{ _common_role }}'
+  loop: '{{ os_roles
+            |union(group_roles)
+            |flatten|unique
+         }}'
+  loop_control:
+    loop_var: '_common_role'

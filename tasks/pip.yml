@@ -1,0 +1,11 @@
+---
+
+- name: 'Set pip state.'
+  include_tasks: 'pip_state.yml'
+  loop: '{{ os_pips.keys()|union(group_pips.keys())|sort|unique }}'
+  loop_control:
+    loop_var: 'state'
+  vars:
+    name: '{{ os_pips[state]|default([])
+       |union(group_pips[state]|default([]))
+       |flatten|unique }}'

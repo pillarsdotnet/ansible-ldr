@@ -1,0 +1,25 @@
+---
+
+_os1: '{{ ansible_system }}'
+_os2: '{{ _os1 }}.{{ ansible_os_family }}'
+_os3: '{{ _os2 }}.{{ ansible_distribution }}'
+_os4: '{{ _os3 }}.{{ ansible_distribution_major_version }}'
+_os5: '{{ _os3 }}.{{ ansible_distribution_version }}'
+
+common_async_poll: 10
+
+common_async_timeout: 1000
+
+common_os_patterns: '{{ [ _os1, _os2, _os3, _os4, _os5 ] }}'
+
+group_pips: {}
+
+group_pkgs: {}
+
+group_roles: []
+
+os_pips: {}
+
+os_pkgs: {}
+
+os_roles: []

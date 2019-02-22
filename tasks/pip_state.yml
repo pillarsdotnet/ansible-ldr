@@ -1,0 +1,8 @@
+---
+
+- name: 'Set pip {{ name|join(", ") }} to {{ state }}.'
+  async: '{{ common_async_timeout }}'
+  pip:
+    name: '{{ name }}'
+    state: '{{ state }}'
+  poll: '{{ common_async_poll }}'

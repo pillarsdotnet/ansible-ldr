@@ -6,7 +6,7 @@
 - name: 'Load vars.'
   include_vars:
     depth: 1
-    dir: '{{ item }}'
+    dir: '{{ playbook_dir }}/vars/{{ item }}'
   ignore_errors: true
   loop:
     - 'all'

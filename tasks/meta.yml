@@ -11,4 +11,4 @@
     state: 'list'
   ignore_errors: true
   register: 'meta'
-  when: 'meta.tags is not defined'
+  when: 'meta is not defined or meta.tags is not defined'

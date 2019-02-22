@@ -11,4 +11,4 @@
     state: 'list'
   ignore_errors: true
   register: 'meta'
-  when: 'meta.tags|default(none) is not mapping'
+  when: 'meta|default(none) is not mapping'

@@ -19,11 +19,11 @@ Set in an included `vars/os` file:
   Ordered list of roles to be invoked for every instance.
 
 Override in a [`group_vars`](../../group_vars) file:
-- `ldr_pips_enable`
+- `ldr_pip_enable`
   Set to `true` to install `ldr_os_pips` and `ldr_app_pips`; defaults to `false`.
-- `ldr_pkgs_enable`
+- `ldr_pkg_enable`
   Set to `true` to install `ldr_os_pkgs` and `ldr_app_pkgs`; defaults to `false`.
-- `ldr_roles_enable`
+- `ldr_role_enable`
   Set to `true` to apply `ldr_os_roles` and `ldr_app_roles`; defaults to `false`.
 - `ldr_app_pips`
   Ordered list of python-packages to be installed for a particular application tag.

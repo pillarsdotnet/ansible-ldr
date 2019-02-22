@@ -15,9 +15,3 @@ ldr_os_pips: {}
 ldr_os_pkgs: {}
 
 ldr_os_roles: []
-
-ldr_pip_enable: false
-
-ldr_pkg_enable: false
-
-ldr_role_enable: false

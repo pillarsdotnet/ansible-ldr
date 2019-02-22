@@ -7,7 +7,7 @@
   include_vars:
     depth: 1
     dir: '{{ playbook_dir }}/vars/{{ item }}'
-    files_matching: '^.*\.yml$'
+    files_matching: '\.ya?ml$'
   failed_when: false
   ignore_errors: true
   loop:
@@ -30,4 +30,3 @@
     os3: '{{ os2 }}.{{ ansible_distribution }}'
     os4: '{{ os3 }}.{{ ansible_distribution_major_version }}'
     os5: '{{ os3 }}.{{ ansible_distribution_version }}'
-    

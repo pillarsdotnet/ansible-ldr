@@ -5,12 +5,12 @@
 
 - name: 'Install os packages.'
   include_tasks: 'pkg.yml'
-  when: 'ldr_pkg_enable'
+  when: 'ldr_pkg_enable|default(false)'
 
 - name: 'Install pips.'
   include_tasks: 'pip.yml'
-  when: 'ldr_pip_enable'
+  when: 'ldr_pip_enable|default(false)'
 
 - name: 'Apply roles.'
   include_tasks: 'role.yml'
-  when: 'ldr_role_enable'
+  when: 'ldr_role_enable|default(false)'

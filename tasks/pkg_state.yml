@@ -1,8 +1,8 @@
 ---
 
 - name: 'Set package {{ name|join(", ") }} to {{ state }}.'
-  async: '{{ common_async_timeout }}'
+  async: '{{ ldr_async_timeout }}'
   package:
     name: '{{ name }}'
     state: '{{ state }}'
-  poll: '{{ common_async_poll }}'
+  poll: '{{ ldr_async_poll }}'

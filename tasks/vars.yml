@@ -21,8 +21,10 @@
     - 'os/{{ os4 }}'
     - 'os/{{ os5 }}'
   vars:
-    app: '{{ common_app|default(meta.tags.application|default("default")) }}'
-    env: '{{ common_env|default(meta.tags.environment|default("default")) }}'
+    app: '{{ ldr_app|default(ldr_ec2.tags.application
+                       |default("default")) }}'
+    env: '{{ ldr_env|default(ldr_ec2.tags.environment
+                       |default("default")) }}'
     os1: '{{ ansible_system }}'
     os2: '{{ os1 }}.{{ ansible_os_family }}'
     os3: '{{ os2 }}.{{ ansible_distribution }}'

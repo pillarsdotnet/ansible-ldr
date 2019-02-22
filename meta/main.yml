@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: 'Robert Vincent'
-  description: 'Common tasks for aws-hosted instances.'
+  description: 'Loader role.'
   company: 'Valiant Solutions, LLC'
   license:
     - BSD

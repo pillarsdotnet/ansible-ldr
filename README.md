@@ -1,37 +1,36 @@
-Common
+Loader
 ======
 
-Tasks that are common to all instances, regardless of type.
+Loads variables, packages, pips, and other roles.
 
 Role Variables
 --------------
 
 Set in [`defaults`](defaults/main.yml):
-- `common_os_patterns`
+- `ldr_os_patterns`
   Ordered list of operating-system strings used to generate filenames for [include_vars](https://docs.ansible.com/ansible/latest/modules/include_vars_module.html#include-vars-module).
 
 Set in an included `vars/os` file:
-- `common_os_pips`
+- `ldr_os_pips`
   Ordered list of python-packages to be installed.
-- `common_os_pkgs`
+- `ldr_os_pkgs`
   Ordered list of os-packages to be installed.
-- `common_os_roles`
+- `ldr_os_roles`
   Ordered list of roles to be invoked for every instance.
 
 Override in a [`group_vars`](../../group_vars) file:
-- `common_pips_enable`
-  Set to `true` to install `common_os_pips` and `common_app_pips` via [common](roles/common/pip.yml) role; defaults to `false`.
-- `common_pkgs_enable`
-  Set to `true` to install `common_os_pkgs` and `common_app_pkgs` via [common](roles/common/package.yml) role; defaults to `false`.
-- `common_roles_enable`
-  Set to `true` to apply `common_os_roles` and `common_app_roles` via [common](roles/common/main.yml) role; defaults to `false`.
-- `common_app_pips`
+- `ldr_pips_enable`
+  Set to `true` to install `ldr_os_pips` and `ldr_app_pips`; defaults to `false`.
+- `ldr_pkgs_enable`
+  Set to `true` to install `ldr_os_pkgs` and `ldr_app_pkgs`; defaults to `false`.
+- `ldr_roles_enable`
+  Set to `true` to apply `ldr_os_roles` and `ldr_app_roles`; defaults to `false`.
+- `ldr_app_pips`
   Ordered list of python-packages to be installed for a particular application tag.
-- `common_app_pkgs`
+- `ldr_app_pkgs`
   Ordered list of os-packages to be installed for a particular application tag.
-- `common_app_roles`
+- `ldr_app_roles`
   Ordered list of roles to be invoked for a particular application tag.
-
 
 Dependencies
 ------------

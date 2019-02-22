@@ -4,16 +4,13 @@
   include_tasks: 'vars.yml'
 
 - name: 'Install os packages.'
-  include_tasks: 'package.yml'
+  include_tasks: 'pkg.yml'
+  when: 'ldr_pkg_enable'
 
 - name: 'Install pips.'
   include_tasks: 'pip.yml'
+  when: 'ldr_pip_enable'
 
 - name: 'Apply roles.'
-  include_role:
-    name: '{{ _common_role }}'
-  loop: '{{ common_os_roles
-     |union(common_app_roles)
-     |flatten|unique }}'
-  loop_control:
-    loop_var: '_common_role'
+  include_tasks: 'role.yml'
+  when: 'ldr_role_enable'

@@ -1,17 +1,23 @@
 ---
 
-common_async_poll: 10
+ldr_async_poll: 10
 
-common_async_timeout: 1000
+ldr_async_timeout: 1000
 
-common_app_pips: {}
+ldr_app_pips: {}
 
-common_app_pkgs: {}
+ldr_app_pkgs: {}
 
-common_app_roles: []
+ldr_app_roles: []
 
-common_os_pips: {}
+ldr_os_pips: {}
 
-common_os_pkgs: {}
+ldr_os_pkgs: {}
 
-common_os_roles: []
+ldr_os_roles: []
+
+ldr_pips_enable: false
+
+ldr_pkgs_enable: false
+
+ldr_roles_enable: false

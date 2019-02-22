@@ -4,27 +4,14 @@ common_async_poll: 10
 
 common_async_timeout: 1000
 
-common_os1: '{{ ansible_system }}'
-common_os2: '{{ common_os1 }}.{{ ansible_os_family }}'
-common_os3: '{{ common_os2 }}.{{ ansible_distribution }}'
-common_os4: '{{ common_os3 }}.{{ ansible_distribution_major_version }}'
-common_os5: '{{ common_os3 }}.{{ ansible_distribution_version }}'
+common_app_pips: {}
 
-common_os_patterns:
-  - '{{ common_os1 }}'
-  - '{{ common_os2 }}'
-  - '{{ common_os3 }}'
-  - '{{ common_os4 }}'
-  - '{{ common_os5 }}'
+common_app_pkgs: {}
 
-group_pips: {}
+common_app_roles: []
 
-group_pkgs: {}
+common_os_pips: {}
 
-group_roles: []
+common_os_pkgs: {}
 
-os_pips: {}
-
-os_pkgs: {}
-
-os_roles: []
+common_os_roles: []

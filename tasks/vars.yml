@@ -3,7 +3,7 @@
 - name: 'Load tags.'
   include_tasks: 'tags.yml'
 
-- name: 'Load vars.'
+- name: 'Load app vars.'
   include_vars:
     depth: 1
     dir: '{{ playbook_dir }}/vars/{{ item }}'
@@ -15,11 +15,17 @@
     - 'all/{{ env }}'
     - '{{ app }}'
     - '{{ app }}/{{ env }}'
-    - 'os/{{ common_os1 }}'
-    - 'os/{{ common_os2 }}'
-    - 'os/{{ common_os3 }}'
-    - 'os/{{ common_os4 }}'
-    - 'os/{{ common_os5 }}'
+    - 'os/{{ os1 }}'
+    - 'os/{{ os2 }}'
+    - 'os/{{ os3 }}'
+    - 'os/{{ os4 }}'
+    - 'os/{{ os5 }}'
   vars:
     app: '{{ common_app|default(meta.tags.application|default("default")) }}'
     env: '{{ common_env|default(meta.tags.environment|default("default")) }}'
+    os1: '{{ ansible_system }}'
+    os2: '{{ os1 }}.{{ ansible_os_family }}'
+    os3: '{{ os2 }}.{{ ansible_distribution }}'
+    os4: '{{ os3 }}.{{ ansible_distribution_major_version }}'
+    os5: '{{ os3 }}.{{ ansible_distribution_version }}'
+    

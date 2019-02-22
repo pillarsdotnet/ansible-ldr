@@ -1,13 +1,14 @@
 ---
 
-- name: 'Load metadata.'
-  include_tasks: 'meta.yml'
+- name: 'Load tags.'
+  include_tasks: 'tags.yml'
 
 - name: 'Load vars.'
   include_vars:
     depth: 1
     dir: '{{ playbook_dir }}/vars/{{ item }}'
-  ignore_errors: true
+    files_matching: '^.*\.yml$'
+  failed_when: false
   loop:
     - 'all'
     - 'all/{{ env }}'

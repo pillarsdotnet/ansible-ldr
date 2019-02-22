@@ -1,0 +1,23 @@
+---
+
+- name: 'Load metadata.'
+  include_tasks: 'meta.yml'
+
+- name: 'Load vars.'
+  include_vars:
+    depth: 1
+    dir: '{{ item }}'
+  ignore_errors: true
+  loop:
+    - 'all'
+    - 'all/{{ env }}'
+    - '{{ app }}'
+    - '{{ app }}/{{ env }}'
+    - 'os/{{ common_os1 }}'
+    - 'os/{{ common_os2 }}'
+    - 'os/{{ common_os3 }}'
+    - 'os/{{ common_os4 }}'
+    - 'os/{{ common_os5 }}'
+  vars:
+    app: '{{ common_app|default(meta.tags.application|default("default")) }}'
+    env: '{{ common_env|default(meta.tags.environment|default("default")) }}'

@@ -1,0 +1,14 @@
+---
+
+- name: 'Load ec2_metadata facts.'
+  ec2_metadata_facts: {}
+  when: 'ansible_ec2_instance_id is not defined'
+
+- name: 'Load ec2 tags.'
+  ec2_tag:
+    region: '{{ ansible_ec2_placement_region }}'
+    resource: '{{ ansible_ec2_instance_id }}'
+    state: 'list'
+  ignore_errors: true
+  register: 'meta'
+  when: 'meta.tags is not defined'

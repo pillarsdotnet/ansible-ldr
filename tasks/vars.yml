@@ -9,6 +9,7 @@
     dir: '{{ playbook_dir }}/vars/{{ item }}'
     files_matching: '^.*\.yml$'
   failed_when: false
+  ignore_errors: true
   loop:
     - 'all'
     - 'all/{{ env }}'

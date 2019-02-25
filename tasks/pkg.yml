@@ -2,19 +2,19 @@
 
 - name: 'Set package state.'
   include_tasks: 'pkg_state.yml'
-  loop: '{{ ldr_os_pkgs.keys()
-     |union(ldr_app_pkgs.keys())
+  loop: '{{ ldr_pkgs_os.keys()
+     |union(ldr_pkgs.keys())
      |sort|unique }}'
   loop_control:
     loop_var: 'state'
   vars:
-    name: '{{ ldr_os_pkgs[state]|default([])
-       |union(ldr_app_pkgs[state]|default([]))
+    name: '{{ ldr_pkgs_os[state]|default([])
+       |union(ldr_pkgs[state]|default([]))
        |flatten|unique }}'
 
 - name: 'Purge problematic packages.'
   apt:
-    name: '{{ ldr_os_apt_purge }}'
+    name: '{{ os_apt_purge }}'
     state: 'absent'
     purge: true
-  when: 'ldr_os_apt_purge is defined'
+  when: 'os_apt_purge is defined'

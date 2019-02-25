@@ -2,8 +2,8 @@
 
 - include_role:
     name: '{{ _ldr_role }}'
-  loop: '{{ ldr_os_roles
-     |union(ldr_app_roles)
+  loop: '{{ ldr_roles_os
+     |union(ldr_roles)
      |flatten|unique }}'
   loop_control:
     loop_var: '_ldr_role'

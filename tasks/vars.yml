@@ -11,15 +11,15 @@
   failed_when: false
   ignore_errors: true
   loop:
-    - 'all'
-    - 'all/{{ env }}'
-    - '{{ app }}'
-    - '{{ app }}/{{ env }}'
     - 'os/{{ os1 }}'
     - 'os/{{ os2 }}'
     - 'os/{{ os3 }}'
     - 'os/{{ os4 }}'
     - 'os/{{ os5 }}'
+    - 'all'
+    - 'all/{{ env }}'
+    - '{{ app }}'
+    - '{{ app }}/{{ env }}'
   vars:
     app: '{{ ldr_app|default(ldr_ec2.tags.application
                        |default("default")) }}'

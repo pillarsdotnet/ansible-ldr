@@ -1,5 +1,13 @@
 ---
 
+- name: 'bootstrap required pips.'
+  async: '{{ ldr_async_timeout }}'
+  pip:
+    name:
+      - 'boto3'
+      - 'botocore'
+    state: 'present'
+  poll: '{{ ldr_async_poll }}'
+
 - name: 'Load ec2_metadata facts.'
   ec2_metadata_facts: {}
-  when: 'ansible_ec2_instance_id is not defined'

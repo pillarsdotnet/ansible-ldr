@@ -11,22 +11,17 @@
   failed_when: false
   ignore_errors: true
   loop:
-    - 'os/{{ os1 }}'
-    - 'os/{{ os2 }}'
-    - 'os/{{ os3 }}'
-    - 'os/{{ os4 }}'
-    - 'os/{{ os5 }}'
+    - 'os/{{ ldr_os1 }}'
+    - 'os/{{ ldr_os2 }}'
+    - 'os/{{ ldr_os3 }}'
+    - 'os/{{ ldr_os4 }}'
+    - 'os/{{ ldr_os5 }}'
     - 'all'
     - 'all/{{ env }}'
     - '{{ app }}'
     - '{{ app }}/{{ env }}'
   vars:
     app: '{{ ldr_app|default(ldr_ec2.tags.application
-                       |default("default")) }}'
+                       |default("default", true), true) }}'
     env: '{{ ldr_env|default(ldr_ec2.tags.environment
-                       |default("default")) }}'
-    os1: '{{ ansible_system }}'
-    os2: '{{ os1 }}.{{ ansible_os_family }}'
-    os3: '{{ os2 }}.{{ ansible_distribution }}'
-    os4: '{{ os3 }}.{{ ansible_distribution_major_version }}'
-    os5: '{{ os3 }}.{{ ansible_distribution_version }}'
+                       |default("default", true), true) }}'

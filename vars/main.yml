@@ -1,0 +1,11 @@
+---
+
+ldr_os1: '{{ ansible_system }}'
+
+ldr_os2: '{{ ldr_os1 }}.{{ ansible_os_family }}'
+
+ldr_os3: '{{ ldr_os2 }}.{{ ansible_distribution }}'
+
+ldr_os4: '{{ ldr_os3 }}.{{ ansible_distribution_major_version }}'
+
+ldr_os5: '{{ ldr_os3 }}.{{ ansible_distribution_version }}'

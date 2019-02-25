@@ -10,4 +10,3 @@
     state: 'list'
   ignore_errors: true
   register: 'ldr_ec2'
-  when: 'ldr_ec2|default(none) is not mapping'

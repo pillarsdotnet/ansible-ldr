@@ -8,5 +8,7 @@
     region: '{{ ansible_ec2_placement_region }}'
     resource: '{{ ansible_ec2_instance_id }}'
     state: 'list'
-  ignore_errors: true
+  delay: 1
   register: 'ldr_ec2'
+  retries: 3
+  until: 'ldr_ec2 is not failed'

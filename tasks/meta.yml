@@ -11,3 +11,7 @@
 
 - name: 'Load ec2_metadata facts.'
   ec2_metadata_facts: {}
+  delay: 1
+  register: 'ec2_metadata_facts'
+  retries: 3
+  until: 'ec2_metadata_facts is not failed'
